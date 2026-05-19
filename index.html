@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Saya</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    .app-shell {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: #f4f7fb;
+      color: #172033;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    .glass-nav {
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid rgba(23, 32, 51, 0.08);
+    }
+
+    .hero-panel {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(239,246,255,0.92)),
+                  linear-gradient(45deg, transparent 25%, rgba(37,99,235,0.05) 25%, rgba(37,99,235,0.05) 50%, transparent 50%);
+      background-size: auto, 24px 24px;
+      box-shadow: 0 24px 80px rgba(23, 32, 51, 0.12);
+    }
+
+    .feature-card {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 45px rgba(23, 32, 51, 0.13);
+      border-color: rgba(37, 99, 235, 0.32);
+    }
+
+    .primary-button {
+      transition: transform 180ms ease, filter 180ms ease, box-shadow 180ms ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      box-shadow: 0 18px 36px rgba(37, 99, 235, 0.25);
+    }
+
+    .primary-button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(14, 165, 233, 0.45);
+      outline-offset: 4px;
+    }
+
+    .fade-up {
+      animation: fadeUp 680ms ease both;
+    }
+
+    .delay-1 { animation-delay: 90ms; }
+    .delay-2 { animation-delay: 180ms; }
+    .delay-3 { animation-delay: 270ms; }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up, .feature-card, .primary-button {
+        animation: none;
+        transition: none;
+      }
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="app-shell">
+   <header class="glass-nav sticky top-0 z-20">
+    <div class="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-5 md:flex-row md:items-center md:justify-between">
+     <div>
+      <h1 id="siteTitle" class="font-extrabold tracking-tight text-2xl">Website Saya</h1>
+      <p id="siteSubtitle" class="mt-1 font-medium opacity-75 text-sm">Template HTML Sederhana</p>
+     </div>
+     <nav aria-label="Navigasi utama" class="flex flex-wrap gap-2"><a href="#home" class="rounded-full px-4 py-2 font-bold transition hover:bg-white">Home</a> <a href="#tentang" class="rounded-full px-4 py-2 font-bold transition hover:bg-white">Tentang</a> <a href="#layanan" class="rounded-full px-4 py-2 font-bold transition hover:bg-white">Layanan</a> <a href="#kontak" class="rounded-full px-4 py-2 font-bold transition hover:bg-white">Kontak</a>
+     </nav>
+    </div>
+   </header>
+   <main>
+    <section id="home" class="mx-auto w-full max-w-6xl px-6 py-12 md:py-16">
+     <div class="hero-panel fade-up overflow-hidden rounded-[2rem] border border-white/80 p-8 md:p-12">
+      <div class="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+       <div>
+        <div class="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-blue-700"><i data-lucide="sparkles" class="h-4 w-4"></i> Website modern siap pakai
+        </div>
+        <h2 id="heroTitle" class="max-w-3xl font-extrabold leading-tight tracking-tight text-4xl">Selamat Datang</h2>
+        <p id="heroDescription" class="mt-5 max-w-2xl leading-relaxed opacity-80 text-lg">Membuat website modern dengan HTML dan CSS.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4"><a id="mainButton" href="#layanan" class="primary-button inline-flex items-center gap-2 rounded-full px-6 py-3 font-extrabold text-white bg-blue-600"> <span id="buttonText">Mulai</span> <i data-lucide="arrow-right" class="h-5 w-5"></i> </a> <a href="#tentang" class="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-extrabold shadow-sm transition hover:shadow-md"> Pelajari <i data-lucide="chevron-down" class="h-5 w-5"></i> </a>
+        </div>
+       </div>
+       <aside aria-label="Ilustrasi website" class="relative hidden md:block">
+        <div class="rounded-[1.6rem] border border-slate-200 bg-white p-4 shadow-2xl">
+         <div class="mb-4 flex items-center gap-2"><span class="h-3 w-3 rounded-full bg-red-400"></span> <span class="h-3 w-3 rounded-full bg-yellow-400"></span> <span class="h-3 w-3 rounded-full bg-green-400"></span>
+         </div>
+         <div class="space-y-4">
+          <div class="h-8 w-2/3 rounded-xl bg-slate-200"></div>
+          <div class="h-3 w-full rounded-full bg-slate-100"></div>
+          <div class="h-3 w-5/6 rounded-full bg-slate-100"></div>
+          <div class="grid grid-cols-3 gap-3 pt-3">
+           <div class="h-24 rounded-2xl bg-blue-100"></div>
+           <div class="h-24 rounded-2xl bg-sky-100"></div>
+           <div class="h-24 rounded-2xl bg-indigo-100"></div>
+          </div>
+         </div>
+        </div>
+       </aside>
+      </div>
+     </div>
+    </section>
+    <section id="tentang" class="mx-auto w-full max-w-6xl px-6 pb-6">
+     <div class="fade-up delay-1 rounded-[1.5rem] border border-slate-200 bg-white/75 p-6 shadow-sm">
+      <h2 class="font-extrabold tracking-tight text-2xl">Tentang Website Ini</h2>
+      <p class="mt-3 leading-relaxed opacity-80">Template ini cocok untuk profil bisnis, portofolio, halaman promosi, atau presentasi singkat yang ingin terlihat profesional.</p>
+     </div>
+    </section>
+    <section id="layanan" class="mx-auto w-full max-w-6xl px-6 py-10">
+     <div class="mb-7 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+      <div>
+       <p class="font-bold uppercase tracking-[0.2em] text-blue-600">Keunggulan</p>
+       <h2 class="mt-2 font-extrabold tracking-tight text-3xl">Dibuat untuk tampil meyakinkan</h2>
+      </div>
+     </div>
+     <div class="grid gap-5 md:grid-cols-3">
+      <article class="feature-card fade-up delay-1 rounded-[1.5rem] border border-slate-200 bg-white p-6">
+       <div class="mb-5 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-700"><i data-lucide="layout-template" class="h-7 w-7"></i>
+       </div>
+       <h3 id="cardOneTitle" class="font-extrabold text-xl">Desain Modern</h3>
+       <p id="cardOneText" class="mt-3 leading-relaxed opacity-75">Tampilan bersih dan responsif untuk semua perangkat.</p>
+      </article>
+      <article class="feature-card fade-up delay-2 rounded-[1.5rem] border border-slate-200 bg-white p-6">
+       <div class="mb-5 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-700"><i data-lucide="mouse-pointer-click" class="h-7 w-7"></i>
+       </div>
+       <h3 id="cardTwoTitle" class="font-extrabold text-xl">Mudah Digunakan</h3>
+       <p id="cardTwoText" class="mt-3 leading-relaxed opacity-75">Struktur kode sederhana dan mudah dipelajari.</p>
+      </article>
+      <article class="feature-card fade-up delay-3 rounded-[1.5rem] border border-slate-200 bg-white p-6">
+       <div class="mb-5 inline-flex rounded-2xl bg-blue-50 p-3 text-blue-700"><i data-lucide="zap" class="h-7 w-7"></i>
+       </div>
+       <h3 id="cardThreeTitle" class="font-extrabold text-xl">Cepat</h3>
+       <p id="cardThreeText" class="mt-3 leading-relaxed opacity-75">Tanpa framework tambahan, ringan dan cepat.</p>
+      </article>
+     </div>
+    </section>
+    <section id="kontak" class="mx-auto w-full max-w-6xl px-6 pb-12">
+     <div class="rounded-[1.5rem] bg-slate-900 p-7 text-white md:p-8">
+      <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+       <div>
+        <h2 class="font-extrabold text-2xl">Siap mulai?</h2>
+        <p class="mt-2 opacity-75">Gunakan bagian ini untuk mengarahkan pengunjung ke langkah berikutnya.</p>
+       </div><a href="#home" class="inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-3 font-extrabold text-slate-900 transition hover:bg-blue-50"> Kembali ke atas <i data-lucide="arrow-up" class="h-5 w-5"></i> </a>
+      </div>
+     </div>
+    </section>
+   </main>
+   <footer class="border-t border-slate-200 bg-white/70 px-6 py-6 text-center">
+    <p id="footerText" class="font-semibold opacity-75">© 2026 Website Saya. All rights reserved.</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: "#f4f7fb",
+      surface_color: "#ffffff",
+      text_color: "#172033",
+      primary_action_color: "#2563eb",
+      secondary_action_color: "#0ea5e9",
+      font_family: "Plus Jakarta Sans",
+      font_size: 16,
+      site_title: "Website Saya",
+      site_subtitle: "Template HTML Sederhana",
+      hero_title: "Selamat Datang",
+      hero_description: "Membuat website modern dengan HTML dan CSS.",
+      button_text: "Mulai",
+      card_one_title: "Desain Modern",
+      card_one_text: "Tampilan bersih dan responsif untuk semua perangkat.",
+      card_two_title: "Mudah Digunakan",
+      card_two_text: "Struktur kode sederhana dan mudah dipelajari.",
+      card_three_title: "Cepat",
+      card_three_text: "Tanpa framework tambahan, ringan dan cepat.",
+      footer_text: "© 2026 Website Saya. All rights reserved."
+    };
+
+    function valueFrom(config, key) {
+      return config[key] || defaultConfig[key];
+    }
+
+    async function onConfigChange(config) {
+      const backgroundColor = valueFrom(config, "background_color");
+      const surfaceColor = valueFrom(config, "surface_color");
+      const textColor = valueFrom(config, "text_color");
+      const primaryActionColor = valueFrom(config, "primary_action_color");
+      const secondaryActionColor = valueFrom(config, "secondary_action_color");
+      const fontFamily = valueFrom(config, "font_family");
+      const baseSize = Number(valueFrom(config, "font_size")) || 16;
+      const fontStack = `${fontFamily}, "Plus Jakarta Sans", sans-serif`;
+
+      const app = document.getElementById("app");
+      app.style.background = `
+        radial-gradient(circle at top left, ${primaryActionColor}2e, transparent 34%),
+        radial-gradient(circle at bottom right, ${secondaryActionColor}26, transparent 32%),
+        ${backgroundColor}
+      `;
+      app.style.color = textColor;
+      app.style.fontFamily = fontStack;
+
+      document.getElementById("siteTitle").textContent = valueFrom(config, "site_title");
+      document.getElementById("siteSubtitle").textContent = valueFrom(config, "site_subtitle");
+      document.getElementById("heroTitle").textContent = valueFrom(config, "hero_title");
+      document.getElementById("heroDescription").textContent = valueFrom(config, "hero_description");
+      document.getElementById("buttonText").textContent = valueFrom(config, "button_text");
+      document.getElementById("cardOneTitle").textContent = valueFrom(config, "card_one_title");
+      document.getElementById("cardOneText").textContent = valueFrom(config, "card_one_text");
+      document.getElementById("cardTwoTitle").textContent = valueFrom(config, "card_two_title");
+      document.getElementById("cardTwoText").textContent = valueFrom(config, "card_two_text");
+      document.getElementById("cardThreeTitle").textContent = valueFrom(config, "card_three_title");
+      document.getElementById("cardThreeText").textContent = valueFrom(config, "card_three_text");
+      document.getElementById("footerText").textContent = valueFrom(config, "footer_text");
+
+      document.getElementById("mainButton").style.backgroundColor = primaryActionColor;
+
+      document.querySelectorAll(".feature-card, [class*='bg-white']").forEach((element) => {
+        if (element.classList.contains("feature-card") || 
+            element.classList.contains("hero-panel") ||
+            element.tagName === "FOOTER" ||
+            element.classList.contains("rounded-\\[1\\.5rem\\]")) {
+          element.style.backgroundColor = surfaceColor;
+        }
+      });
+
+      document.querySelectorAll("h1, h2, h3").forEach((element) => {
+        element.style.fontFamily = fontStack;
+      });
+
+      document.querySelectorAll("h1").forEach((element) => {
+        element.style.fontSize = `${baseSize * 1.5}px`;
+      });
+
+      document.querySelectorAll("h2").forEach((element) => {
+        element.style.fontSize = `${baseSize * 1.875}px`;
+      });
+
+      document.querySelectorAll("h3").forEach((element) => {
+        element.style.fontSize = `${baseSize * 1.25}px`;
+      });
+
+      document.querySelectorAll("p, a, span").forEach((element) => {
+        element.style.fontFamily = fontStack;
+        element.style.fontSize = `${baseSize}px`;
+      });
+
+      document.getElementById("siteSubtitle").style.fontSize = `${baseSize * 0.875}px`;
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => {
+                config.surface_color = value;
+                window.elementSdk.setConfig({ surface_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.primary_action_color || defaultConfig.primary_action_color,
+              set: (value) => {
+                config.primary_action_color = value;
+                window.elementSdk.setConfig({ primary_action_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+              set: (value) => {
+                config.secondary_action_color = value;
+                window.elementSdk.setConfig({ secondary_action_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["site_subtitle", config.site_subtitle || defaultConfig.site_subtitle],
+          ["hero_title", config.hero_title || defaultConfig.hero_title],
+          ["hero_description", config.hero_description || defaultConfig.hero_description],
+          ["button_text", config.button_text || defaultConfig.button_text],
+          ["card_one_title", config.card_one_title || defaultConfig.card_one_title],
+          ["card_one_text", config.card_one_text || defaultConfig.card_one_text],
+          ["card_two_title", config.card_two_title || defaultConfig.card_two_title],
+          ["card_two_text", config.card_two_text || defaultConfig.card_two_text],
+          ["card_three_title", config.card_three_title || defaultConfig.card_three_title],
+          ["card_three_text", config.card_three_text || defaultConfig.card_three_text],
+          ["footer_text", config.footer_text || defaultConfig.footer_text]
+        ])
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fe1470066195ff8',t:'MTc3OTE3NDU3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
